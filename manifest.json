@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "AD Blocker Plus",
+  "author" : "Google LLC",
+  "version": "1.0",
+  "description": "Blocking irritating ads",
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "permissions":[
+    "tabs",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "./src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "./src/content.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "./icons/ublock48.png",
+    "48": "./icons/ublock48.png",
+    "64": "./icons/ublock64.png"
+  }
+}
